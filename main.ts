@@ -10,7 +10,24 @@ sprites.onOverlap(SpriteKind.Bullet, SpriteKind.Enemy, function (sprite, otherSp
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     music.playSoundEffect(music.createSoundEffect(WaveShape.Noise, 1021, 352, 255, 253, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.InBackground)
-    Bullet = sprites.createProjectileFromSprite(assets.image`Bullet`, Player1, 150, 150)
+    Bullet2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, Player1, 150, 150)
     Render.toggleViewMode()
 })
 sprites.onOverlap(SpriteKind.Bullet, SpriteKind.Player, function (sprite, otherSprite) {
@@ -531,29 +548,12 @@ function Music () {
 controller.B.onEvent(ControllerButtonEvent.Released, function () {
     Render.moveWithController(4, 6, 1)
 })
-let Bullet: Sprite = null
+let Bullet2: Sprite = null
 let Player1: Sprite = null
 profilelife.setTextColor(2)
 profilelife.setName("Player")
 profilelife.setBackgroundBorder(12, 10)
-profilelife.setProfileImage(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . f f f f . . . . . . 
-    . . . . f f f 2 2 f f f . . . . 
-    . . . f f f 2 2 2 2 f f f . . . 
-    . . f f f e e e e e e f f f . . 
-    . . f e e 2 2 2 2 2 2 e f f . . 
-    . f f e 2 f f f f f f 2 e f f . 
-    . f f f f f e e e e f f f f f . 
-    . . f e f b f 4 4 f b f e f . . 
-    . . f e 4 1 f d d f 1 4 e f . . 
-    . . e f f f f d d d 4 e f . . . 
-    . . f d d d d f 2 2 2 f e f . . 
-    . . f b b b b f 2 2 2 f 4 e . . 
-    . . f b b b b f 5 4 4 f . . . . 
-    . . . f c c f f f f f f . . . . 
-    . . . . f f . . . f f f . . . . 
-    `)
+profilelife.setProfileImage(assets.image`PlayerIcon`)
 Player1 = Render.getRenderSpriteVariable()
 scene.setBackgroundImage(img`
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
@@ -677,7 +677,7 @@ scene.setBackgroundImage(img`
     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     `)
-tiles.setCurrentTilemap(tilemap`DEBUG_MAP`)
+tiles.setCurrentTilemap(tilemap`level1`)
 Render.moveWithController(4, 6, 1)
 let Enemy1 = sprites.create(img`
     . f f f . f f f f . f f f . 
